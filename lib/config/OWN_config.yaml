@@ -1,0 +1,64 @@
+GPUID: 0  # !
+WORKERS: 0
+PRINT_FREQ: 10
+SAVE_FREQ: 10
+PIN_MEMORY: False
+OUTPUT_DIR: 'mongolia_xiaorong_output'  # !
+
+CUDNN:
+  BENCHMARK: True
+  DETERMINISTIC: False
+  ENABLED: True
+
+DATASET:
+  DATASET: OWN
+  ROOT: "/data02/imucs_data/machine84/Image/cw_PR/original_dataset_model/cvl/data"
+  JSON_FILE: {'train': '/data02/imucs_data/machine84/Image/cw_PR/original_dataset_model/cvl/data/train_label.txt',
+              'val': '/data02/imucs_data/machine84/Image/cw_PR/original_dataset_model/cvl/data/test_label.txt'}  # !
+  NPY_FILE: { 'train':  ,
+              'val':  }  # !
+  SCALE_FACTOR: 0.25
+  ROT_FACTOR: 30
+  STD: 0.084
+  MEAN: 0.093
+  ALPHABETS: ''
+
+TRAIN:
+  BATCH_SIZE_PER_GPU: 1760  # ! 原本是32
+  SHUFFLE: True
+  BEGIN_EPOCH: 110  # !
+  END_EPOCH: 126  # ! 微调，其实就是要你自己停下 原设置为4500！！！！！！！！！！
+  RESUME:
+    IS_RESUME: True  # 断点续训要改的 原本是False
+    FILE: '/data02/imucs_data/machine84/Image/cw_PR/zhuyao/cvl/search_20W/checkpoint_110_loss_0.0004.pth'
+  OPTIMIZER: 'adam'
+  LR: 0.0056   # 原本是0.0001
+  WD: 0.0
+  LR_STEP: [60, 80]
+  LR_FACTOR: 0.1
+  MOMENTUM: 0.0
+  NESTEROV: False
+  RMSPROP_ALPHA:
+  RMSPROP_CENTERED:
+  FINETUNE:
+    IS_FINETUNE: false  # !
+    FINETUNE_CHECKPOINIT: ''  # !
+    FREEZE: false  # !
+
+TEST:
+  BATCH_SIZE_PER_GPU: 40
+  SHUFFLE: True  # for random test rather than test on the whole validation set
+  NUM_TEST_BATCH: 2194
+  NUM_TEST_DISP: 10
+  FREQUENCY: 125  # ! the frequency of how much epoch to test data  原设置5个epoch测试一次
+
+MODEL:
+  NAME: 'crnn'
+  IMAGE_SIZE:
+    OW: 280. # origial width: 280
+    H: 32
+    W: 160   # resized width: 160
+  NUM_CLASSES: 0
+  NUM_HIDDEN: 256
+
+

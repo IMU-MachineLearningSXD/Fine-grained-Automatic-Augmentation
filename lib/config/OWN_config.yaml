@@ -3,7 +3,7 @@ WORKERS: 0
 PRINT_FREQ: 10
 SAVE_FREQ: 10
 PIN_MEMORY: False
-OUTPUT_DIR: 'mongolia_xiaorong_output'  # !
+OUTPUT_DIR: 'cvl_search_output'  # !
 
 CUDNN:
   BENCHMARK: True
@@ -24,15 +24,15 @@ DATASET:
   ALPHABETS: ''
 
 TRAIN:
-  BATCH_SIZE_PER_GPU: 1760  # ! 原本是32
+  BATCH_SIZE_PER_GPU: 1024  # ! 原本是32  1760
   SHUFFLE: True
-  BEGIN_EPOCH: 110  # !
-  END_EPOCH: 126  # ! 微调，其实就是要你自己停下 原设置为4500！！！！！！！！！！
+  BEGIN_EPOCH: 60  # ! 60
+  END_EPOCH: 76  # ! 微调，其实就是要你自己停下 原设置为4500！  76
   RESUME:
-    IS_RESUME: True  # 断点续训要改的 原本是False
-    FILE: '/data02/imucs_data/machine84/Image/cw_PR/zhuyao/cvl/search_20W/checkpoint_110_loss_0.0004.pth'
+    IS_RESUME: True  # 断点续训要改的 原本是False  True
+    FILE: '/data02/imucs_data/machine84/Image/cw_PR/original_dataset_model/cvl/exp_no_npy/checkpoint_60_loss_0.0009.pth'
   OPTIMIZER: 'adam'
-  LR: 0.0056   # 原本是0.0001
+  LR: 0.0005   # 原本是0.0001   0.0056
   WD: 0.0
   LR_STEP: [60, 80]
   LR_FACTOR: 0.1
@@ -46,11 +46,11 @@ TRAIN:
     FREEZE: false  # !
 
 TEST:
-  BATCH_SIZE_PER_GPU: 40
+  BATCH_SIZE_PER_GPU: 40  # 40
   SHUFFLE: True  # for random test rather than test on the whole validation set
-  NUM_TEST_BATCH: 2194
+  NUM_TEST_BATCH: 2194   # 2194
   NUM_TEST_DISP: 10
-  FREQUENCY: 125  # ! the frequency of how much epoch to test data  原设置5个epoch测试一次
+  FREQUENCY: 75  # ! the frequency of how much epoch to test data  原设置5个epoch测试一次  75
 
 MODEL:
   NAME: 'crnn'

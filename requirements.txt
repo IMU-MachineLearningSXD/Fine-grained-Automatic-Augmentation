@@ -1,0 +1,10 @@
+optuna
+tensorboard
+torchvision
+yaml==0.2.5
+pyyaml==5.4.1
+numpy
+opencv-python
+pandas
+scikit-image==0.17.2
+scipy==1.5.2

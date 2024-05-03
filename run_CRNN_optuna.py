@@ -140,9 +140,9 @@ def objective(trial):
 
     # 定义optuna策略库
     list_policy = []
-    num_aug = 20   # 增广次数
-    for i in range(num_aug):
-        list_policy.append(trial.suggest_float('policy_%d' % (i+1), 0.1, 0.7, log=True))   # 左极限不能为0，否则报错
+    # num_aug = 5   # 增广次数
+    for i in range(20):
+        list_policy.append(trial.suggest_float('policy_%d' % (i+1), 0.1, 0.8, log=True))   # 左极限不能为0，否则报错
 
     # 源代码!!!!!!!!被注释掉的
     # train_dataset = get_dataset(config)(config, is_train=True)

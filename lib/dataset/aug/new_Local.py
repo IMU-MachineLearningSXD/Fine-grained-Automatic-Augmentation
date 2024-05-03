@@ -74,13 +74,16 @@ def new_local(para_list):
                         list_distance.append(two_points_distance(pt_temp, pt_cor))
                     min_distance = min(list_distance)  # 取最小距离
                     # 控制域大小
-                    control_field = float(min_distance * rate)
+                    rate_choice_cor = random.choice(rate)
+
+                    control_field = float(min_distance * rate_choice_cor)
                     # 数据打进list_control_field_corner
                     list_control_field_corner.append([control_field])
 
                 # 计算第三控制点控制域
                 len_rectangular = float(get_distance_from_point_to_line(pt_third_bezier, pt_cor1, pt_cor2))
-                list_control_field_third_bezier.append([float(len_rectangular * rate)])
+                rate_choice_third = random.choice(rate)
+                list_control_field_third_bezier.append([float(len_rectangular * rate_choice_third)])
 
                 # 打数据
                 list_total[index_list_total][2][index_child_bezier].append(list_control_field_corner)

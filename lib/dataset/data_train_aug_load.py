@@ -140,7 +140,7 @@ def bezier_aug(original_train_dataset_list, orig_labels, list_policy):
 
     # 第二个多进程，增广数据
     print("begin draw the image 2/2\n")
-    num_aug = len(list_policy)
+    num_aug = 5
     for k in range(num_aug):
         # 要加一个增广的进度,可视化
         sys.stdout.write('\r>> aug time {:d}/{:d}'.format(k+1, num_aug))
@@ -150,13 +150,15 @@ def bezier_aug(original_train_dataset_list, orig_labels, list_policy):
         for i in range(len(orig_labels)):
             inf = list_information[i][0]
             idx = list_information[i][1]
-            para_list.append([inf, 1, 3, list_policy[k], idx])  # 图片；增广次数；笔画半径；控制域比率;idx
+            para_list.append([inf, 1, 3, list_policy, idx])  # 图片；增广次数；笔画半径；控制域比率;idx
         # 多进程跑new_local，增广样本
         with multiprocessing.Pool(processes=40) as pool:
             list_aug = pool.map(new_local, para_list)
         # 增广的样本打进list_final_aug_dataset
         for p in range(len(list_aug)):
             list_final_aug_dataset.append([list_aug[p][0][0], list_aug[p][1]])
+            # cv2.imwrite('/data02/imucs_data/machine84/Image/cw_PR/zhuyao/cvl/search_5w/train/{}.jpg'.format(p), list_aug[p][0][0])
+        # exit(0)
 
     return list_final_aug_dataset, orig_labels
 

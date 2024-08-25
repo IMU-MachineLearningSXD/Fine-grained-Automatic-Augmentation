@@ -343,3 +343,6 @@ We provide a CRNN model pre-trained on a cvl dataset：./checkpoint_60_loss_0.00
     <td><b>24.92±0.18</b></td>
   </tr>
 </table>
+
+### Experimental results of FgAA's domain transferability. The number denotes the Word Accuracy Rate degradation when the policy is transferred to the target dataset.
+![image](https://github.com/IMU-MachineLearningSXD/Fine-grained-Automatic-Augmentation/blob/main/img/Domain_transfer.jpg)

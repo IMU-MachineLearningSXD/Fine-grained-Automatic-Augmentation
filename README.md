@@ -28,6 +28,18 @@ We provide a CRNN model pre-trained on a cvl dataset：./checkpoint_60_loss_0.00
 ## Case Study
 ![image](https://github.com/IMU-MachineLearningSXD/Fine-grained-Automatic-Augmentation/blob/main/img/Case_study.jpg)
 
+## Citation
+If you find our work is useful in your research, please consider citing:
+
+@article{chen2024fine,
+  title={Fine-grained Automatic Augmentation for handwritten character recognition},
+  author={Chen, Wei and Su, Xiangdong and Hou, Hongxu},
+  journal={Pattern Recognition},
+  pages={111079},
+  year={2024},
+  publisher={Elsevier}
+}
+
 ## Additional experiments
 
 

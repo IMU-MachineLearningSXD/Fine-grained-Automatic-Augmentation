@@ -22,6 +22,11 @@ We provide a CRNN model pre-trained on a cvl dataset：./checkpoint_60_loss_0.00
 ### Run the following code
     python run_CRNN_optuna.py --cfg lib/config/OWN_config.yaml
 
+### Skip the training process
+    If you want to skip the training process and go straight to our core augmentation method, check out the following repositories:
+    https://github.com/IMU-MachineLearningSXD/script-level_aug_ICFHR2022
+    We have provided some examples of handwritten words that can be used directly for generation
+
 ## Policy
 ![image](https://github.com/IMU-MachineLearningSXD/Fine-grained-Automatic-Augmentation/blob/main/img/Policy.jpg)
 
